@@ -38,7 +38,6 @@
     "dev": "npm run watch-ts",
     "seed": "node dist/db/seeds.js",
     "build-ts": "tsc -p src",
-    "postinstall": "tsc -p src && npm run seed",
     "quick-build": "npm run build-ts",
     "serve": "set NODE_ENV=development && node dist/server.js",
     "start-dev": "set NODE_ENV=development && nodemon dist/server.js",
