@@ -6,7 +6,6 @@ services:
       context: ./
     container_name: api-server
     image: api-server
-    restart: unless-stopped
     environment:
       - CHOKIDAR_USEPOLLING=1
       - NODE_ENV=development
