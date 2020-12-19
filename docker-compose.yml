@@ -1,0 +1,57 @@
+version: "3"
+
+services:
+  api-server:
+    build:
+      context: ./
+    container_name: api-server
+    image: api-server
+    restart: unless-stopped
+    environment:
+      - CHOKIDAR_USEPOLLING=1
+      - NODE_ENV=development
+      - PORT=4000
+      - MONGO_URI=mongodb://mongo-dev/todo
+      - TEST_MONGO_URI=mongodb://mongo-test/todo_test
+      - APP_SECRET=estkeysdjsndnjndjk
+      - REFRESH_SECRET_KEY=testsncndjcndj
+      - REDIS_URL=cache
+    depends_on:
+      - mongo-dev
+      - mongo-test
+      - cache
+    volumes:
+      - ./logs:/logs
+      - "./:/usr/src/services/"
+      - "./node_modules:/usr/src/services/node_modules"
+    links:
+      - cache
+      - mongo-dev
+      - mongo-test
+    ports:
+      - "4000:4000"
+  mongo-dev:
+    image: mongo
+    container_name: mongo-dev
+    restart: always
+    volumes:
+      - ./data/live/mongo:/data/db
+    ports:
+      - "1009:27017"
+  mongo-test:
+    image: mongo
+    container_name: mongo-test
+    restart: always
+    volumes:
+      - ./data/test/mongo:/data/db
+    ports:
+      - "1010:27017"
+  cache:
+    image: redis
+    hostname: cache
+    container_name: cache
+    command: ["redis-server", "--bind", "cache", "--port", "6379"]
+    ports:
+      - "6379:6379"
+
+
