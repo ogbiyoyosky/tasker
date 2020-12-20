@@ -59,6 +59,9 @@ run `docker-compose up --build`
 
 The above command spin up mongodb, redis and the application.
 
+
+run test `docker exec api-server npm test`
+
 ### API DOCUMENTATION URL
 https://documenter.getpostman.com/view/6226738/TVsuBSjZ
 
