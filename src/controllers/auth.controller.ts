@@ -15,50 +15,9 @@ interface ILoginArgs {
 }
 
 class AuthController {
-  /**
-   * Generate token
-   * @param {Object} req: url params
-   * @param {Function} res: Express.js response callback
-   * @param {Function} next: Express.js middleware callback
-   * @author Emmanuel Ogbiyoyo
-   * @public
-   */
+  
 
-  public static async generateToken(
-    req: Request,
-    res: Response,
-    next: NextFunction
-  ) {
-    try {
-      const refreshToken = req.body.token;
-
-      if (!refreshToken)
-        return res.status(httpStatus.UNAUTHORIZED).send({
-          message: "Provid a valid token",
-          status: "Unauthorized",
-          status_code: httpStatus.UNAUTHORIZED,
-        });
-
-      const verifiedData = await verifyRefreshToken(refreshToken);
-      const accessToken = await signAccessToken(verifiedData);
-      const refToken = await signRefreshToken(verifiedData);
-
-      return res.status(httpStatus.OK).send({
-        message: "Successfully generated new credentials",
-        status: "ok",
-        status_code: httpStatus.OK,
-        results: [{ accessToken: accessToken, refreshToken: refToken }],
-      });
-    } catch (error) {
-      logger.info(error);
-      return res.status(httpStatus.UNAUTHORIZED).send({
-        message: "Unauthorized",
-        status: "Unauthorized",
-        status_code: httpStatus.UNAUTHORIZED,
-      });
-    }
-  }
-
+  
   /**
    * Logout a user
    * @param {Object} req: url params
