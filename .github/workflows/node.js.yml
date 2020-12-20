@@ -18,19 +18,17 @@ jobs:
         node-version: [12.x]
 
     steps:
-    - uses: actions/checkout@v1
-    - name: Build the docker-compose stack
-      run: docker-compose up -d
-    - name: Sleep
-      uses: jakejarvis/wait-action@master
-      with:
-        time: '60s'
-    - name: Check running containers
-      run: docker ps -a
-    - name: Check log the container files
-      run: docker exec api-server cat dist/server.js 
-    - name: Check log on api-server
-      run: docker container logs  api-server
-    - name: Run Test
-      run: docker exec api-server npm run test
-   
+      - uses: actions/checkout@v2
+      - name: npm install, build and test
+        env:
+          TEST_MONGO_URI: ${{secrets.TEST_MONGO_URI}}
+          NODE_ENV: test
+          BASE_URL: ${{secrets.BASE_URL}}
+          APP_SECRET_KEY: ${{secrets.APP_SECRET_KEY}}
+          REFRESH_SECRET_KEY: ${{secrets.REFRESH_SECRET_KEY}}
+          REDIS_URL: ${{secrets.REDIS_URL}}
+          REDIS_PASSWORD: ${{secrets.REDIS_PASSWORD}}
+        run: |
+          npm install
+          npm run quick-build
+          npm test
