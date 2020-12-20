@@ -30,5 +30,4 @@ jobs:
           REDIS_PASSWORD: ${{secrets.REDIS_PASSWORD}}
         run: |
           npm install
-          npm run quick-build
           npm test

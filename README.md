@@ -60,7 +60,7 @@ run `docker-compose up --build`
 The above command spin up mongodb, redis and the application.
 
 ### API DOCUMENTATION URL
-
+https://documenter.getpostman.com/view/6226738/TVsuBSjZ
 
 
 ## AUTHOR
