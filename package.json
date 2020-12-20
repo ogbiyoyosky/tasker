@@ -35,7 +35,7 @@
   "author": "Emmanuel Ogbiyoyo",
   "main": "dist/index.js",
   "scripts": {
-    "preinstall": "npm run quick-build",
+    "postinstall": "tsc -p src",
     "dev": "npm run watch-ts",
     "seed": "node dist/db/seeds.js",
     "build-ts": "tsc -p src",
