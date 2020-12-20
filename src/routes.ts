@@ -44,11 +44,6 @@ router.post(
 router.post("/api/auth/logout", AuthController.logout);
 
 /**
- * @generateRefreshTohen
- */
-router.post("/api/auth/refresh-token", AuthController.generateToken);
-
-/**
  * @adminRegister
  */
 router.post(

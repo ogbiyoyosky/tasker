@@ -51,10 +51,10 @@ class AuthController {
       });
     } catch (error) {
       logger.info(error);
-      return res.status(httpStatus.INTERNAL_SERVER_ERROR).send({
-        message: "Internal Server Error",
-        status: "Internal Server Error",
-        status_code: httpStatus.INTERNAL_SERVER_ERROR,
+      return res.status(httpStatus.UNAUTHORIZED).send({
+        message: "Unauthorized",
+        status: "Unauthorized",
+        status_code: httpStatus.UNAUTHORIZED,
       });
     }
   }

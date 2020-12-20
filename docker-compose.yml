@@ -16,7 +16,6 @@ services:
       - APP_SECRET=estkeysdjsndnjndjk
       - REFRESH_SECRET_KEY=testsncndjcndj
       - REDIS_URL=cache
-    command: "npm run test"
     depends_on:
       - mongo-dev
       - mongo-test
