@@ -27,6 +27,8 @@ jobs:
         time: '60s'
     - name: Check running containers
       run: docker ps -a
+    - name: Check log on api-server
+      run: docker container logs  api-server
     - name: Run Test
       run: docker exec api-server npm run test
    
