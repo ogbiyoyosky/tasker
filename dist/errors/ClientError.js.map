@@ -1,0 +1,1 @@
+{"version":3,"file":"ClientError.js","sourceRoot":"","sources":["../../src/errors/ClientError.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;AACA,wDAAkC;AAElC;;;GAGG;AACH;IAA0B,+BAAQ;IAC9B;;OAEG;IACH,qBAAY,OAAO;QAAnB,YACI,kBAAM,GAAG,EAAE,OAAO,CAAC,SAEtB;QADG,KAAI,CAAC,IAAI,GAAG,cAAc,CAAC;;IAC/B,CAAC;IACL,kBAAC;AAAD,CAAC,AARD,CAA0B,kBAAQ,GAQjC;AAED,kBAAe,WAAW,CAAC"}
