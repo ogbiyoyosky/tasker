@@ -3,10 +3,7 @@
 # Tasker API
 
 
-I have a habit of name my repositories after greek gods.
-What does this god do?
-
-This god is an API that mock matches in a “**Mock Premier League**”
+I A tod app manager
 
 ## Features
 
